@@ -1,0 +1,10 @@
+.button {
+
+  color: var(--colorFadedFont);
+  background: var(--colorScrim);
+
+  &[data-type='outline'] {
+    background: none;
+    border: var(--colorFadedFont) solid 1px;
+  }
+}

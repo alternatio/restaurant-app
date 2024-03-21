@@ -1,0 +1,28 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.8rem 1.5rem;
+	border-radius: 100rem;
+	border: var(--colorStroke) solid 1px;
+	background: var(--colorBackground);
+	width: calc(100% - 2rem);
+	max-width: 74rem;
+	position: fixed;
+	top: 1rem;
+	box-shadow: 0 .5rem .75rem var(--colorFadedScrim);
+	z-index: 10;
+}
+
+.logo {
+	font-weight: 700;
+	font-size: 1.3rem;
+	color: var(--colorFadedFont);
+	font-variation-settings: 'slnt' -5;
+}
+
+.links {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}

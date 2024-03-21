@@ -1,0 +1,23 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: .25rem;
+}
+
+.heroTitle {
+  font-weight: 700;
+  font-size: 10rem;
+  color: var(--colorFadedFont);
+  font-variation-settings: 'slnt' -5;
+  line-height: 100%;
+  text-align: center;
+}
+
+.heroDescription {
+  font-size: 1rem;
+  color: var(--colorFont);
+  text-align: center;
+  text-transform: lowercase;
+  text-wrap: balance
+}

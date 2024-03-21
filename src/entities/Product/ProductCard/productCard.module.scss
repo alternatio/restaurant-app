@@ -1,0 +1,33 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  padding: .75rem;
+  background: var(--colorModal);
+  border: var(--colorStroke) solid 1px;
+  border-radius: 1rem;
+  box-shadow: 0 .5rem .5rem var(--colorFadedScrim);
+  width: min(100%, 20rem);
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: var(--colorStroke);
+  border-radius: 0.675rem;
+  object-fit: cover;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--colorFadedFont);
+  text-transform: uppercase;
+  height: 3rem;
+}
+
+.cost {
+  font-weight: 800;
+  font-variation-settings: 'slnt' -5;
+  color: var(--colorFadedFont);
+}

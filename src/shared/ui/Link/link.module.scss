@@ -1,0 +1,10 @@
+.link {
+  font-weight: 450;
+  color: var(--colorAccent);
+  border-bottom: var(--colorAccent) solid 1px;
+  line-height: 97.5%;
+
+  &:hover {
+    border-bottom: var(--colorAccent) solid 0px;
+  }
+}

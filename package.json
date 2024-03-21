@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/node": "^20.11.30",
     "firebase": "^10.9.0",
+    "framer-motion": "^11.0.18",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
