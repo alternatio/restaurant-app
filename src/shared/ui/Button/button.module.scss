@@ -1,11 +1,8 @@
 .button {
-  border-radius: 100rem;
+	border-radius: 100rem;
 
-  color: var(--colorFadedFont);
-  background: var(--colorScrim);
-
-  &[data-type='outline'] {
-    background: none;
-    border: var(--colorFadedFont) solid 1px;
-  }
+	&[data-type='outline'] {
+		background: none;
+		border: var(--colorFadedFont) solid 1px;
+	}
 }

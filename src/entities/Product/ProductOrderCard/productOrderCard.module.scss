@@ -1,0 +1,49 @@
+.card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem;
+	background: var(--colorModal);
+	border: var(--colorStroke) solid 1px;
+	border-radius: 1rem;
+	box-shadow: 0 0.5rem 0.5rem var(--colorFadedScrim);
+	width: 100%;
+	height: 20rem;
+}
+
+.image {
+	height: 100%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.name {
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.costs {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.cost {
+}
+
+.description {
+	font-size: 0.75rem;
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}

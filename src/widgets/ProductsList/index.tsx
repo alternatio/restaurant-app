@@ -7,9 +7,11 @@ interface ProductsListProps {
 }
 
 export default function ProductsList({ products }: ProductsListProps) {
-	return <div className={style.list}>
-		{products?.map(product => {
-			return <ProductCard product={product} />
-		})}
-	</div>
+	return (
+		<div className={style.list}>
+			{products?.map(product => {
+				return <ProductCard key={product.id} product={product} />
+			})}
+		</div>
+	)
 }

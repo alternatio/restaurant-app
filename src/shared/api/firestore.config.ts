@@ -21,11 +21,11 @@ export const app = initializeApp(firebaseConfig)
 export const analytics = getAnalytics(app)
 
 // authorization
-export const auth = getAuth();
+export const auth = getAuth()
 export const googleAuthProvider = new GoogleAuthProvider()
 
 // firestore
-export const db = getFirestore(app);
+export const db = getFirestore(app)
 
 // storage
 export const storage = getStorage(app, 'gs://restaurant-c742d.appspot.com')

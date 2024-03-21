@@ -1,62 +1,63 @@
 .wrapper {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100dvw;
-  height: 100dvh;
-  top: 0;
-  left: 0;
-  background: var(--colorScrim);
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100dvw;
+	height: 100dvh;
+	top: 0;
+	left: 0;
+	background: var(--colorScrim);
 
-  transition: .2s linear;
+	transition: 0.2s linear;
 }
 
 .alertDialog {
-  background: var(--colorModal);
-  border-radius: 1rem;
-  border: var(--colorStroke) solid 1px;
-  box-shadow: 0 .2rem .25rem var(--colorFadedScrim);
-  padding: 1rem;
-  max-width: 20rem;
-  width: 90%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+	background: var(--colorModal);
+	border-radius: 1rem;
+	border: var(--colorStroke) solid 1px;
+	box-shadow: 0 0.2rem 0.25rem var(--colorFadedScrim);
+	padding: 1rem;
+	max-width: 20rem;
+	width: 90%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	backdrop-filter: blur(1rem);
 }
 
 .title {
-  font-size: 1.2rem;
-  font-weight: 600;
+	font-size: 1.2rem;
+	font-weight: 600;
 }
 
 .message {
-  font-size: .8rem;
-  color: var(--colorDescription);
+	font-size: 0.8rem;
+	color: var(--colorDescription);
 }
 
 .buttons {
-  display: flex;
-  gap: 1rem;
+	display: flex;
+	gap: 1rem;
 }
 
 .button {
-  width: 100%;
-  padding: .65rem 1rem;
-  border-radius: .5rem;
-  transition: 0.15s ease-in-out;
+	width: 100%;
+	padding: 0.65rem 1rem;
+	border-radius: 0.5rem;
+	transition: 0.15s ease-in-out;
 
-  &:hover {
-    filter: brightness(0.95);
-  }
+	&:hover {
+		filter: brightness(0.95);
+	}
 }
 
 .firstButton {
-  background-color: var(--colorAccent);
-  color: var(--colorBackground);
+	background-color: var(--colorAccent);
+	color: var(--colorBackground);
 }
 
 .secondButton {
-  color: var(--colorAccent);
+	color: var(--colorAccent);
 }

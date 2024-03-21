@@ -6,6 +6,7 @@ import { useAppDispatch } from '@/app/store'
 import { addItemToCart } from '@/app/store/reducers/cart.ts'
 import { useState } from 'react'
 import TipText from '@/shared/ui/TipText'
+import AlertPopup from '@/widgets/AlertDialog'
 
 interface ContentProps {
 	user?: User
@@ -14,6 +15,7 @@ interface ContentProps {
 }
 
 export default function Content({ user, product, image }: ContentProps) {
+	const [alertIsVisible, setAlertIsVisible] = useState(false)
 	const [count, setCount] = useState(1)
 
 	const dispatch = useAppDispatch()
@@ -25,6 +27,7 @@ export default function Content({ user, product, image }: ContentProps) {
 			count,
 		}
 		dispatch(addItemToCart(item))
+		setAlertIsVisible(true)
 	}
 
 	const decrementCount = () => {
@@ -39,6 +42,13 @@ export default function Content({ user, product, image }: ContentProps) {
 
 	return (
 		<div className={style.content}>
+			{alertIsVisible ? (
+				<AlertPopup
+					title={'Товар добавлен в корзину'}
+					message={'Теперь вы можете перейти в корзину для оформления заказа'}
+					secondButtonOnClick={() => setAlertIsVisible(false)}
+				/>
+			) : null}
 			<img
 				className={style.image}
 				src={image}

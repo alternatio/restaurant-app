@@ -1,16 +1,40 @@
 .card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: .75rem;
-  padding: .75rem;
-  background: var(--colorModal);
-  border: var(--colorStroke) solid 1px;
-  border-radius: 1rem;
-  box-shadow: 0 .5rem .5rem var(--colorFadedScrim);
-  width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 0.75rem;
+	background: var(--colorModal);
+	border: var(--colorStroke) solid 1px;
+	border-radius: 1rem;
+	box-shadow: 0 0.5rem 0.5rem var(--colorFadedScrim);
+	width: min(100%, 20rem);
+	height: 15rem;
+	justify-content: center;
 }
 
-.image {
+.products {
+	display: flex;
+	flex-direction: column;
+	//align-items: center;
+	gap: 0.25rem;
+}
 
+.product {
+	text-align: center;
+}
+
+.productName {
+	font-weight: 500;
+	font-size: 0.9rem;
+}
+
+.id {
+	font-weight: 300;
+	font-size: 0.8rem;
+	text-align: center;
+}
+
+.fullCost {
+	font-weight: 300;
 }

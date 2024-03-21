@@ -1,15 +1,19 @@
 body {
-  --colorBackground: #fff;
-  --colorStroke: #f4f4f4;
-  --colorModal: #fefefecc;
+	--colorBackground: #fff;
+	--colorStroke: #f4f4f4;
+	--colorModal: #fefefeee;
 
-  --colorFont: #111;
-  --colorFadedFont: #333;
+	--colorFont: #111;
+	--colorFadedFont: #333;
 
-  --colorScrim: #1111;
-  --colorFadedScrim: #1111110a;
+	--colorScrim: #1111;
+	--colorFadedScrim: #1111110a;
 
-  --colorDescription: #808080;
+	--colorInteractive: #eee;
+	--colorHover: #e4e4e4;
+	--colorActive: #e8e8e8;
 
-  --colorAccent: #07f;
+	--colorDescription: #808080;
+
+	--colorAccent: #07f;
 }

@@ -5,8 +5,17 @@ import { ReactNode } from 'react'
 interface CustomLinkProps {
 	children?: ReactNode
 	to: string
+	className?: string
 }
 
-export default function CustomLink({ to, children }: CustomLinkProps) {
-	return <Link className={style.link} to={to}>{children}</Link>
+export default function CustomLink({
+	to,
+	children,
+	className,
+}: CustomLinkProps) {
+	return (
+		<Link className={`${style.link} ${className}`} to={to}>
+			{children}
+		</Link>
+	)
 }

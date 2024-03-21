@@ -1,10 +1,13 @@
 .link {
-  font-weight: 450;
-  color: var(--colorAccent);
-  border-bottom: var(--colorAccent) solid 1px;
-  line-height: 97.5%;
+	font-weight: 450;
+	color: var(--colorAccent);
+	border-bottom: var(--colorAccent) solid 1px;
+	line-height: 97.5%;
+	width: fit-content;
 
-  &:hover {
-    border-bottom: var(--colorAccent) solid 0px;
-  }
+	transition: 0.05s linear;
+
+	&:hover {
+		border-bottom: transparent solid 1px;
+	}
 }
