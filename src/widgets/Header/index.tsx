@@ -26,6 +26,7 @@ export default function Header({ user, setUser }: HeaderProps) {
 				{user?.uid ? (
 					<>
 						<CustomLink to={'/menu'}>Меню</CustomLink>
+						<CustomLink to={'/orders'}>Корзина</CustomLink>
 						<Button onClick={() => userSignOut(setUser)}>Выйти из аккаунта</Button>
 					</>
 				) : (

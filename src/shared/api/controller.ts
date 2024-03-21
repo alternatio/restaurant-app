@@ -1,9 +1,10 @@
 import { addDoc, collection, doc, DocumentData, getDoc, getDocs, limit, query, setDoc } from 'firebase/firestore'
 import { db } from '@/shared/api/firestore.config.ts'
-import { IProducts } from '@/entities/Product/interfaces.ts'
+import { IProducts, IProductsWIthCount } from '@/entities/Product/interfaces.ts'
+import { User } from 'firebase/auth'
+import { IOrderWithoutID } from '@/entities/Order/interfaces.ts'
 
 // --- INITIAL FUNCTIONS ---
-
 // get doc in firestore
 export const getDocInFirestore = async (collectionName: string, docName: string) => {
 	return await getDoc(doc(db, collectionName, docName))
@@ -44,4 +45,13 @@ export const getProducts = async (limit: number = 10) => {
 
 export const getProduct = async (id: string) => {
 	return await getDocInFirestore('products', id)
+}
+
+export const createOrder = async (user: User, products: IProductsWIthCount) => {
+	const order: IOrderWithoutID = {
+		userUID: user.uid,
+		products: products
+	}
+
+	return await addItemInFirestore('orders', order)
 }

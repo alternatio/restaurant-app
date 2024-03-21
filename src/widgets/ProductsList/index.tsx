@@ -3,12 +3,12 @@ import { IProducts } from '@/entities/Product/interfaces.ts'
 import ProductCard from '@/entities/Product/ProductCard'
 
 interface ProductsListProps {
-	products: IProducts
+	products?: IProducts
 }
 
 export default function ProductsList({ products }: ProductsListProps) {
 	return <div className={style.list}>
-		{products.map(product => {
+		{products?.map(product => {
 			return <ProductCard product={product} />
 		})}
 	</div>

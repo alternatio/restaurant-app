@@ -10,12 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.2",
     "@types/node": "^20.11.30",
     "firebase": "^10.9.0",
-    "framer-motion": "^11.0.18",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-query": "^3.39.3",
+    "react-redux": "^9.1.0",
     "react-router-dom": "^6.22.3",
     "sass": "^1.72.0"
   },

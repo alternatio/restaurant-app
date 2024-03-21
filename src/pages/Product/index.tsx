@@ -6,6 +6,8 @@ import Loader from '@/shared/ui/Loader'
 import getFullDataProduct from '@/pages/Product/api/getFullDataProduct.ts'
 import { IProduct } from '@/entities/Product/interfaces.ts'
 import getImagePath from '@/shared/api/downloadImage.ts'
+import { useQuery } from 'react-query'
+import Content from '@/pages/Product/Content'
 
 interface ProductPageProps {
 	user: User | undefined
@@ -13,30 +15,34 @@ interface ProductPageProps {
 }
 
 export default function ProductPage(props: ProductPageProps) {
-	const [product, setProduct] = useState<IProduct>()
-	const [productImage, setProductImage] = useState('')
-	const [loading, setLoading] = useState<boolean>(true)
 	const { productId } = useParams()
+	const [productImage, setProductImage] = useState('')
 
-	const initialResponse = async () => {
-		setLoading(true)
-		if (productId) {
-			const product = await getFullDataProduct(productId)
-			setProduct(product)
-			if (!product?.image) return
-			setProductImage(await getImagePath(product.image))
+	const { data: product, isLoading } = useQuery<IProduct | undefined>(
+		['product', productId],
+		() => getFullDataProduct(productId),
+		{
+			enabled: !!productId,
 		}
-		setLoading(false)
+	)
+
+	const fetchProductImage = async (imageName: string) => {
+		setProductImage(await getImagePath(imageName))
 	}
 
 	useEffect(() => {
-		initialResponse()
-	}, [])
+		if (!product?.image) return
+		fetchProductImage(product.image)
+	}, [product])
 
-	return <><Header {...props} />{loading ? <Loader /> : (
+	return (
 		<>
-			<img src={productImage} alt={`productImage — ${product?.name}`} />
-			<span>{product?.name}</span>
+			<Header {...props} />
+			{isLoading ? (
+				<Loader />
+			) : (
+				<Content user={props.user} product={product} image={productImage} />
+			)}
 		</>
-	)}</>
+	)
 }

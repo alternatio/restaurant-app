@@ -1,11 +1,12 @@
-import { User } from 'firebase/auth'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { useQuery } from 'react-query'
 import Header from '@/widgets/Header'
 import { IProducts } from '@/entities/Product/interfaces.ts'
 import Loader from '@/shared/ui/Loader'
 import ProductsList from '@/widgets/ProductsList'
 import getMenuProducts from '@/pages/Menu/api/getMenuProducts.ts'
 import TipText from '@/shared/ui/TipText'
+import { Dispatch, SetStateAction } from 'react'
+import { User } from 'firebase/auth'
 
 interface MenuPageProps {
 	user: User | undefined
@@ -13,29 +14,24 @@ interface MenuPageProps {
 }
 
 export default function MenuPage(props: MenuPageProps) {
-	const [products, setProducts] = useState<IProducts>([])
-	const [loading, setLoading] = useState<boolean>(true)
-
-	const initialResponse = async () => {
-		setLoading(true)
-		props.user?.uid && await getMenuProducts(setProducts)
-		setLoading(false)
-	}
-
-	useEffect(() => {
-		initialResponse()
-	}, [])
+	const { data: products, isLoading } = useQuery<IProducts>(
+		'menuProducts',
+		() => getMenuProducts(),
+		{
+			enabled: !!props.user?.uid,
+		}
+	)
 
 	return (
 		<>
 			<Header {...props} />
-			{loading ? <Loader /> : <ProductsList products={products} />}
-			{!props.user?.uid ? (
+			{isLoading ? <Loader /> : <ProductsList products={products} />}
+			{!props.user?.uid && (
 				<TipText>
 					Чтобы получить доступ ко всему ассортименту вам придётся
 					авторизироваться.
 				</TipText>
-			) : null}
+			)}
 		</>
 	)
 }

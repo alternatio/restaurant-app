@@ -4,6 +4,7 @@ import ProductPage from '@/pages/Product'
 import MenuPage from '@/pages/Menu'
 import { useState } from 'react'
 import { User } from 'firebase/auth'
+import CartPage from '@/pages/Cart'
 
 function App() {
 	const [user, setUser] = useState<User | undefined>(
@@ -26,6 +27,12 @@ function App() {
 				<Route
 					path='/product/:productId'
 					element={<ProductPage user={user} setUser={setUser} />}
+				/>
+
+				{/* cart page */}
+				<Route
+					path='/orders'
+					element={<CartPage user={user} setUser={setUser} />}
 				/>
 			</Routes>
 		</BrowserRouter>
