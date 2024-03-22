@@ -82,6 +82,8 @@ export const getUserOrders = async (
 		return querySnapshot.docs.map((doc: DocumentData) => ({
 			id: doc.id,
 			userUID: doc.data().userUID,
+			address: doc.data().address,
+			payMethod: doc.data().payMethod,
 			products: doc.data().products,
 		}))
 	} catch (error) {

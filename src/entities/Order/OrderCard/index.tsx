@@ -25,6 +25,9 @@ export default function OrderCard({ order }: OrderCardProps) {
 					)
 				})}
 			</div>
+			<span className={style.address}>
+				{order.address} - {order.payMethod}
+			</span>
 			<span className={style.fullCost}>
 				Полная стоимость заказа: {calculateFullCost(order.products)} €
 			</span>
