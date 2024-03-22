@@ -42,17 +42,17 @@ export default function Content({ user, product, image }: ContentProps) {
 
 	return (
 		<div className={style.content}>
-			{alertIsVisible ? (
-				<AlertPopup
-					title={'Товар добавлен в корзину'}
-					message={'Теперь вы можете перейти в корзину для оформления заказа'}
-					secondButtonOnClick={() => setAlertIsVisible(false)}
-				/>
-			) : null}
+			<AlertPopup
+				isVisible={alertIsVisible}
+				title={'Товар добавлен в корзину'}
+				message={'Теперь вы можете перейти в корзину для оформления заказа'}
+				secondButtonOnClick={() => setAlertIsVisible(false)}
+			/>
 			<img
 				className={style.image}
 				src={image}
 				alt={`productImage — ${product?.name}`}
+				loading={'eager'}
 			/>
 			<div className={style.contentPart}>
 				<span className={style.name}>{product?.name}</span>

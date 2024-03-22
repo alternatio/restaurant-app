@@ -15,10 +15,12 @@ interface ProductOrderCardProps {
 export default function ProductOrderCard({ product }: ProductOrderCardProps) {
 	const dispatch = useAppDispatch()
 	const [image, setImage] = useState('')
+	const [isImageLoaded, setIsImageLoaded] = useState(false)
 
 	const initialResponse = async () => {
 		if (!product?.image) return
 		setImage(await getImagePath(product.image))
+		setIsImageLoaded(true)
 	}
 
 	useEffect(() => {
@@ -35,7 +37,16 @@ export default function ProductOrderCard({ product }: ProductOrderCardProps) {
 
 	return (
 		<div className={style.card}>
-			<img className={style.image} src={image} alt={product.name} />
+			{isImageLoaded ? (
+				<img
+					className={style.image}
+					src={image}
+					alt={product.name}
+					loading={'eager'}
+				/>
+			) : (
+				<div className={style.image}>image is loading</div>
+			)}
 			<div className={style.content}>
 				<h3 className={style.name}>{product.name}</h3>
 				<div className={style.costs}>

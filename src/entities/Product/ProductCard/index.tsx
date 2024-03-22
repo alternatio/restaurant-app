@@ -10,10 +10,12 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
 	const [image, setImage] = useState('')
+	const [isImageLoaded, setIsImageLoaded] = useState(false)
 
 	const initialResponse = async () => {
 		if (!product?.image) return
 		setImage(await getImagePath(product.image))
+		setIsImageLoaded(true)
 	}
 
 	useEffect(() => {
@@ -22,11 +24,13 @@ export default function ProductCard({ product }: ProductCardProps) {
 
 	return (
 		<Link className={style.card} to={`/product/${product.id}`}>
-			<img
+			{isImageLoaded ? <img
 				className={style.image}
 				src={image}
 				alt={`productImage — ${product.name}`}
-			/>
+				loading={'eager'}
+			/> : <div className={style.image}>image is loading</div>}
+
 			<span className={style.title}>{product.name}</span>
 			<span className={style.cost}>-{product.cost} €</span>
 			{/*<p className={style.description}>*/}

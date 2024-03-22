@@ -16,6 +16,9 @@
 	background: var(--colorStroke);
 	border-radius: 0.675rem;
 	object-fit: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .title {

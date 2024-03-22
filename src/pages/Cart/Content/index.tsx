@@ -19,6 +19,7 @@ interface ContentProps {
 
 export default function Content({ user }: ContentProps) {
 	const [alertIsVisible, setAlterVisible] = useState(false)
+	const [warningIsVisible, setWarningIsVisible] = useState(false)
 	const dispatch = useAppDispatch()
 	const cartItems = useAppSelector(state => state.cart.items)
 	const [address, setAddress] = useState('')
@@ -34,6 +35,10 @@ export default function Content({ user }: ContentProps) {
 
 	const handleCreateOrder = () => {
 		if (!user) return
+		if (address.length < 1) {
+			setWarningIsVisible(true)
+			return
+		}
 		const order: IOrderWithoutID = {
 			userUID: user.uid,
 			products: cartItems,
@@ -47,15 +52,19 @@ export default function Content({ user }: ContentProps) {
 
 	return (
 		<div className={style.content}>
-			{alertIsVisible ? (
-				<AlertPopup
-					title={'Заказ оформлен'}
-					message={
-						'Вы можете заказть ещё или просмотреть ваши заказы на соответсвующей странице'
-					}
-					secondButtonOnClick={() => setAlterVisible(false)}
-				/>
-			) : null}
+			<AlertPopup
+				isVisible={alertIsVisible}
+				title={'Заказ оформлен'}
+				message={
+					'Вы можете заказть ещё или просмотреть ваши заказы на соответсвующей странице'
+				}
+				secondButtonOnClick={() => setAlterVisible(false)}
+			/>
+			<AlertPopup
+				isVisible={warningIsVisible}
+				title={'Вы должны указать адрес доставки'}
+				secondButtonOnClick={() => setWarningIsVisible(false)}
+			/>
 			<div className={style.top}>
 				<h2 className={style.title}>Ваша корзина</h2>
 				<div className={style.orderDetails}>

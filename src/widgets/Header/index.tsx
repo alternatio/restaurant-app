@@ -42,7 +42,7 @@ export default function Header({ user, setUser }: HeaderProps) {
 				)}
 			</div>
 			<Button className={style.menuButton} onClick={() => setMenuVisible(!menuIsVisible)}>
-				<img src="/images/menu-veggie-burger.svg" alt="veggie-burger-icon" />
+				<img src="/images/menu-veggie-burger.svg" alt="veggie-burger-icon" loading={'eager'} />
 			</Button>
 		</header>
 	)

@@ -3,6 +3,7 @@ import style from './alertDialog.module.scss'
 interface AlertPopupProps {
 	title: string
 	message?: string
+	isVisible: boolean
 
 	firstButtonLabel?: string
 	firstButtonClassName?: string
@@ -16,6 +17,7 @@ interface AlertPopupProps {
 export default function AlertPopup({
 	title,
 	message,
+	isVisible,
 
 	firstButtonLabel,
 	firstButtonClassName,
@@ -26,7 +28,7 @@ export default function AlertPopup({
 	secondButtonOnClick,
 }: AlertPopupProps) {
 	return (
-		<div className={style.wrapper}>
+		<div className={style.wrapper} data-is-visible={isVisible}>
 			<div className={style.alertDialog}>
 				<h2 className={style.title}>{title}</h2>
 				{message ? <p className={style.message}>{message}</p> : null}
