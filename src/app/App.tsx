@@ -2,15 +2,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from '@/pages/Home'
 import ProductPage from '@/pages/Product'
 import MenuPage from '@/pages/Menu'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { User } from 'firebase/auth'
 import CartPage from '@/pages/Cart'
 import OrdersPage from '@/pages/Orders'
 
 function App() {
-	const [user, setUser] = useState<User | undefined>(
-		JSON.parse(`${localStorage.getItem('user')}`)
-	)
+	const [user, setUser] = useState<User | undefined>()
+
+	useEffect(() => {
+		const user = JSON.parse(`${localStorage.getItem('user')}`)
+		setUser(user)
+	}, [])
 
 	return (
 		<BrowserRouter>

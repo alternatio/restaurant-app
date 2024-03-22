@@ -10,6 +10,7 @@ import { createOrder } from '@/shared/api/controller.ts'
 import { User } from 'firebase/auth'
 import AlertPopup from '@/widgets/AlertDialog'
 import ProductOrderCard from '@/entities/Product/ProductOrderCard'
+import calculateFullCost from '@/features/calculateFullCost.ts'
 
 interface ContentProps {
 	user: User | undefined
@@ -49,6 +50,7 @@ export default function Content({ user }: ContentProps) {
 			<div className={style.top}>
 				<h2 className={style.title}>Ваша корзина</h2>
 				<div className={style.buttons}>
+					<span className={style.fullCost}>Общая стоимость: {calculateFullCost(cartItems)}€</span>
 					<button onClick={handleCreateOrder}>Оформить заказ</button>
 					<button onClick={handleClearCart}>Очистить корзину</button>
 				</div>

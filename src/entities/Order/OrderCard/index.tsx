@@ -1,6 +1,6 @@
 import style from './orderCard.module.scss'
 import { IOrder } from '@/entities/Order/interfaces.ts'
-import calculateFullCost from '@/entities/Order/OrderCard/calculateFullCost.ts'
+import calculateFullCost from '@/features/calculateFullCost.ts'
 import CustomLink from '@/shared/ui/Link'
 
 interface OrderCardProps {
