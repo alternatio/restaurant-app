@@ -12,7 +12,7 @@ function App() {
 
 	useEffect(() => {
 		const stringUser = localStorage.getItem('user')
-		if (!stringUser) return
+		if (!stringUser || stringUser === 'undefined') return
 		const user = JSON.parse(stringUser)
 		setUser(user)
 	}, [])
