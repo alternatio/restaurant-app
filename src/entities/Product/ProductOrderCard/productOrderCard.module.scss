@@ -9,13 +9,21 @@
 	border-radius: 1rem;
 	box-shadow: 0 0.5rem 0.5rem var(--colorFadedScrim);
 	width: 100%;
-	height: 20rem;
+	
+	@media (max-width: 800px) {
+		flex-direction: column;
+	}
 }
 
 .image {
-	height: 100%;
+	width: 40%;
 	aspect-ratio: 1/1;
 	object-fit: cover;
+	border-radius: .5rem;
+	@media (max-width: 800px) {
+		width: 100%;
+		aspect-ratio: 2/1;
+	}
 }
 
 .content {

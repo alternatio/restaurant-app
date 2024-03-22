@@ -12,6 +12,7 @@
 	top: 1rem;
 	box-shadow: 0 0.5rem 0.75rem var(--colorFadedScrim);
 	z-index: 10;
+	//backdrop-filter: blur(1rem);
 }
 
 .logo {
@@ -25,4 +26,20 @@
 	display: flex;
 	align-items: center;
 	gap: 2rem;
+	&[data-is-mobile='true'] {
+		@media (max-width: 1000px) {
+			display: none;
+		}
+	}
+}
+
+.menuButton {
+	background: none;
+	display: none;
+	height: 2.25rem;
+	align-items: center;
+	justify-content: center;
+	@media (max-width: 1000px) {
+		display: flex;
+	}
 }

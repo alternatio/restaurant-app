@@ -11,8 +11,7 @@ import {
 	where,
 } from 'firebase/firestore'
 import { db } from '@/shared/api/firestore.config.ts'
-import { IProducts, IProductsWIthCount } from '@/entities/Product/interfaces.ts'
-import { User } from 'firebase/auth'
+import { IProducts } from '@/entities/Product/interfaces.ts'
 import { IOrders, IOrderWithoutID } from '@/entities/Order/interfaces.ts'
 
 // --- INITIAL FUNCTIONS ---
@@ -90,11 +89,6 @@ export const getUserOrders = async (
 	}
 }
 
-export const createOrder = async (user: User, products: IProductsWIthCount) => {
-	const order: IOrderWithoutID = {
-		userUID: user.uid,
-		products: products,
-	}
-
+export const createOrder = async (order: IOrderWithoutID) => {
 	return await addItemInFirestore('orders', order)
 }

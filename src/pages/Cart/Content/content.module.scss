@@ -3,7 +3,7 @@
 	flex-direction: column;
 	width: 100%;
 	align-items: center;
-	gap: 1rem;
+	gap: 3rem;
 	padding-bottom: 4rem;
 }
 
@@ -12,6 +12,11 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 1rem;
+
+	@media (max-width: 600px) {
+		flex-direction: column;
+	}
 }
 
 .title {
@@ -28,4 +33,30 @@
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+	width: 100%;
+	@media (max-width: 500px) {
+		flex-direction: column;
+	}
+}
+
+.fullCost {
+	white-space: pre;
+}
+
+.button {
+	width: 100%;
+}
+
+.orderDetails {
+	display: flex;
+	gap: .75rem;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.label {
+	display: flex;
+	flex-direction: column;
+	gap: .25rem;
 }

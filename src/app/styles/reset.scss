@@ -6,15 +6,15 @@
 	font-weight: 500;
 	font-size: 1rem;
 }
-
-*::-webkit-scrollbar {
-	width: 0.5rem;
-	background: none;
-}
-
-*::-webkit-scrollbar-thumb {
-	background: #444;
-}
+//
+//*::-webkit-scrollbar {
+//	width: 0.5rem;
+//	background: none;
+//}
+//
+//*::-webkit-scrollbar-thumb {
+//	background: #444;
+//}
 
 html,
 body {
@@ -30,16 +30,29 @@ a {
 }
 
 input[type='text'] {
-	width: 100%;
+	width: min(100%, 15rem);
 	border-radius: 0.5rem;
-	background: #222;
+	background: var(--colorInteractive);
 	padding: 0.5rem;
 	outline: none;
 	border: none;
-	color: #fff;
-	font-size: 0.8rem;
-	font-family: sans-serif;
+	color: var(--colorFadedFont);
+	font-weight: 500;
+	font-family: 'InterVariable', Inter, sans-serif;
 }
+
+select {
+	width: min(100%, 10rem);
+	border-radius: 0.5rem;
+	background: var(--colorInteractive);
+	padding: 0.5rem;
+	outline: none;
+	border: none;
+	color: var(--colorFadedFont);
+	font-weight: 500;
+	font-family: 'InterVariable', Inter, sans-serif;
+}
+
 
 button {
 	padding: 0.5rem 0.75rem;
